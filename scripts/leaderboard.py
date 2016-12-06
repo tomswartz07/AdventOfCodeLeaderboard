@@ -14,10 +14,7 @@ SLACK_WEBHOOK = 'https://hooks.slack.com/services/HOOK'
 def parseData():
     r = requests.get(LEADERBOARD, cookies=COOKIES)
     if r.status_code == requests.codes.ok:
-        RESULTS = r.json()
-        str_json = json.dumps(RESULTS)
-        data = json.loads(str_json)
-        members = data.get('members', None)
+        members = r.json()["members"]
         global outputString
         outputString = "Advent of Code Leaderboard as of today:\n"
         outputString += "<http://adventofcode.com/2016/leaderboard/private/view/108855|View Online Leaderboard>\n"
