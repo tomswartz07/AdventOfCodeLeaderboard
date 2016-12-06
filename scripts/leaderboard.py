@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
 import requests
-import json
-from urllib.parse import urlencode
-from pprint import pprint
 
 '''
 This script will grab the leaderboard from Advent of Code and post it to Slack
