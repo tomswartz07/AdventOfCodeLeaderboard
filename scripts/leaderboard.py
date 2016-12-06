@@ -18,10 +18,15 @@ def parseData():
         global outputString
         outputString = "Advent of Code Leaderboard as of today:\n"
         outputString += "<http://adventofcode.com/2016/leaderboard/private/view/108855|View Online Leaderboard>\n"
-        for value in members.values():
-            username = value['name']
-            stars = value['stars']
-            outputString += username + " : " + str(stars) + " stars\n"
+
+        # get all members
+        users = [(m["name"], m["stars"]) for m in members.values()]
+        # sort members by stars decending
+        users.sort(key=lambda s: -s[1])
+        # add each user to outputString
+        for username, stars in users:
+            outputString += "{}: {} stars\n".format(username, stars)
+
         return outputString
 
 def generatePayload(outputString):
