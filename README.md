@@ -54,4 +54,11 @@ Go to the [Advent of Code Private Leaderboard](http://adventofcode.com/2016/lead
 - That value is what you put in place of `SESSION_COOKIE` in the script. (e.g. the line will read `COOKIES = {'session': 'THIS_IS_THE_SESSION_COOKIE'}`)
 
 ### In Chrome:
-- I don't know. Submit a PR if you really care that much.
+- Open the Developer Tools by pressing `CTRL` + `Shift` + `I`
+    - Mac: Open the Developer Tools by pressing `Cmd` + `Opt` + `I`
+- Select "Aplication" from the tool tabs
+- Click the dropdown arrow beside cookies in treeview on the left
+- Select *http://adventofcode.com*
+- Double click the value of the *session* cookie to highlight it
+- Right click and copy the value
+- That value is what you put in place of `SESSION_COOKIE` in the script. (e.g. the line will read `COOKIES = {'session': 'THIS_IS_THE_SESSION_COOKIE'}`)
