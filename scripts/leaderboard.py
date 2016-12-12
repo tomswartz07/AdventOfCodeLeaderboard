@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 '''
 This script will grab the leaderboard from Advent of Code and post it to Slack
