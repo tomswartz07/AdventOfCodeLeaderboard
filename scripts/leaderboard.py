@@ -21,12 +21,12 @@ def parseData():
         outputString += "<http://adventofcode.com/2016/leaderboard/private/view/108855|View Online Leaderboard>\n"
 
         # Get all members
-        users = [(m["name"], m["stars"]) for m in members.values()]
-        # Sort members by stars decending
+        users = [(m["name"], m["local_score"], m["stars"]) for m in members.values()]
+        # Sort members by score, decending
         users.sort(key=lambda s: -s[1])
         # Add each user to outputString
-        for username, stars in users:
-            outputString += "{}: {} stars\n".format(username, stars)
+        for username, score, stars in users:
+            outputString += "{}: {} Points, {} Stars\n".format(username, score, stars)
         return outputString
 
 def generatePayload(outputString):
