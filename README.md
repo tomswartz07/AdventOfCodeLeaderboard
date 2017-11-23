@@ -16,15 +16,17 @@ Useful for your friendly competitions in and around the workplace.
 
 **Process**:
 
-1. Create a new [Incoming Slack Webhook](https://api.slack.com/incoming-webhooks)
-Feel free to customize it as you wish.
-If you don't have access to add an incoming webhook, see the [Recommended Settings](#recommended-settings) section for more details.
+1. Create a new [Incoming Slack Webhook](https://my.slack.com/services/new/incoming-webhook/)
+    - Read more about incoming webhooks [here](https://api.slack.com/incoming-webhooks)
+    - Feel free to customize it as you wish.
+    - If you don't have access to add an incoming webhook, see the [Recommended Settings](#recommended-settings) section for more details.
 2. Log in to Advent of Code and obtain two things: the Private Leaderboard ID Number and a Session Cookie.
 See [Session Cookie](#getting-a-session-cookie) section for details.
 3. Dump that info into the copy of the script.
-  - Webhook goes in the `SLACK_WEBHOOK` variable
-  - Session cookie replaces the `'SESSION_COOKIE'` text
-  - LEADERBOARD url is obtained from the private leaderboard page. Click on "[API]" → "[JSON]" to get the URL.
+  - Webhook URL goes in the `SLACK_WEBHOOK` variable
+  - Session goes in the `SESSION_ID` variable
+  - Leaderboard ID goes in the `LEADERBOARD_ID` variable.
+    - The ID is the last part of the leaderboard url (http://adventofcode.com/2016/leaderboard/private/view/LEADERBOARD_ID)
 4. Run that shit. Schedule a cron job or something. I don't know. You're doing Advent of Code, figure it out.
 
 ## Recommended Settings
