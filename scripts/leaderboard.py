@@ -13,14 +13,14 @@ SLACK_WEBHOOK = ""
 
 def parseData():
     r = requests.get(
-        "http://adventofcode.com/2016/leaderboard/private/view/{}.json".format(LEADERBOARD_ID),
+        "https://adventofcode.com/2016/leaderboard/private/view/{}.json".format(LEADERBOARD_ID),
         cookies={"session": SESSION_ID}
     )
     if r.status_code == requests.codes.ok:
         members = r.json()["members"]
         global outputString
         outputString = "Advent of Code Leaderboard as of today:\n"
-        outputString += "<http://adventofcode.com/2016/leaderboard/private/view/{}|View Online Leaderboard>\n".format(LEADERBOARD_ID)
+        outputString += "<https://adventofcode.com/2016/leaderboard/private/view/{}|View Online Leaderboard>\n".format(LEADERBOARD_ID)
 
         # Get all members
         users = [(m["name"], m["local_score"], m["stars"]) for m in members.values()]
