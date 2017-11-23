@@ -6,11 +6,11 @@ This script will grab the leaderboard from Advent of Code and post it to Slack
 
 import requests
 
-LEADERBOARD = 'http://adventofcode.com/2016/leaderboard/private/view/<LEADERBOARD_ID>.json'
-COOKIES = {'session': 'SESSION_COOKIE'}
+LEADERBOARD = "http://adventofcode.com/2016/leaderboard/private/view/<LEADERBOARD_ID>.json"
+COOKIES = {"session": "SESSION_COOKIE"}
 # Set the webhook_url to the one provided by Slack when you create
 # the webhook at https://my.slack.com/services/new/incoming-webhook/
-SLACK_WEBHOOK = 'https://hooks.slack.com/services/HOOK'
+SLACK_WEBHOOK = "https://hooks.slack.com/services/HOOK"
 
 def parseData():
     r = requests.get(LEADERBOARD, cookies=COOKIES)
@@ -31,6 +31,7 @@ def parseData():
 
 def generatePayload(outputString):
     text = "{\"text\": \"" + outputString + " \"}"
+
     global PAYLOAD
     PAYLOAD = text
     print(PAYLOAD)
@@ -41,7 +42,7 @@ def postData(PAYLOAD):
     print(PAYLOAD)
     requests.post(
         SLACK_WEBHOOK, data=PAYLOAD,
-        headers={'Content-Type': 'application/json'}
+        headers={"Content-Type": "application/json"}
         )
 
 parseData()
