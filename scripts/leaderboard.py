@@ -4,15 +4,12 @@
 This script will grab the leaderboard from Advent of Code and post it to Slack
 '''
 
-import json, requests
+import datetime, json, requests
 
 # see README for directions on how to fill these variables
 LEADERBOARD_ID = ""
 SESSION_ID = ""
 SLACK_WEBHOOK = ""
-
-# these variables do not need edited
-PRIVATE_LEADERBOARD_URL = "https://adventofcode.com/2016/leaderboard/private/view/"
 
 def formatLeaderMessage(members):
     message = "Advent of Code Leaderboard as of today:"
@@ -21,7 +18,7 @@ def formatLeaderMessage(members):
     for username, score, stars in members:
         message += "\n*{}* {} Points, {} Stars".format(username, score, stars)
 
-    message += "\n\n<{}{}|View Online Leaderboard>".format(PRIVATE_LEADERBOARD_URL, LEADERBOARD_ID)
+    message += "\n\n<{}|View Online Leaderboard>".format(LEADERBOARD_URL)
 
     return message
 
@@ -53,9 +50,12 @@ def main():
         print("Please update script variables before running script.\nSee README for details on how to do this.")
         exit(1)
 
+    global LEADERBOARD_URL
+    LEADERBOARD_URL = "https://adventofcode.com/{}/leaderboard/private/view/{}".format(datetime.datetime.today().year, LEADERBOARD_ID)
+
     # retrieve leaderboard
     r = requests.get(
-        "{}{}.json".format(PRIVATE_LEADERBOARD_URL, LEADERBOARD_ID),
+        "{}.json".format(LEADERBOARD_URL),
         cookies={"session": SESSION_ID}
     )
     if r.status_code != requests.codes.ok:
