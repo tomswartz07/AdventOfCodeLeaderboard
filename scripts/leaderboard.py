@@ -27,7 +27,7 @@ def parseMembers(members_json):
     members = [(m["name"], m["local_score"], m["stars"]) for m in members_json.values()]
 
     # sort members by score, decending
-    members.sort(key=lambda s: -s[1])
+    members.sort(key=lambda s: (-s[1], -s[2]))
 
     return members
 
