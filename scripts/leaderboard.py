@@ -12,7 +12,7 @@ SESSION_ID = ""
 SLACK_WEBHOOK = ""
 
 def formatLeaderMessage(members):
-    message = "Advent of Code Leaderboard as of today:"
+    message = "Advent of Code Leaderboard as of {}:".format(datetime.datetime.now().strftime("%H:%M %d %b %y"))
 
     # add each member to message
     for username, score, stars in members:
