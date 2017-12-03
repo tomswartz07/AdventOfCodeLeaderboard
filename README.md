@@ -27,7 +27,7 @@ See [Session Cookie](#getting-a-session-cookie) section for details.
   - Session goes in the `SESSION_ID` variable
   - Leaderboard ID goes in the `LEADERBOARD_ID` variable.
     - The ID is the last part of the leaderboard url (http://adventofcode.com/2017/leaderboard/private/view/LEADERBOARD_ID)
-4. Run that shit. Schedule a cron job or something. I don't know. You're doing Advent of Code, figure it out.
+4. Run that shit. Schedule a cron job or something. I don't know. You're doing Advent of Code, figure it out. [Just make sure that you don't hit the servers too often.](https://www.reddit.com/r/adventofcode/comments/7gy2y3/remember_please_limit_automated_http_requests/)
 
 ## Recommended Settings
 When creating the custom webhook for the Slack channel, there are a few options to customize.
