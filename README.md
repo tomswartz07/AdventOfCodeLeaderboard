@@ -26,7 +26,7 @@ See [Session Cookie](#getting-a-session-cookie) section for details.
   - Webhook URL goes in the `SLACK_WEBHOOK` variable
   - Session goes in the `SESSION_ID` variable
   - Leaderboard ID goes in the `LEADERBOARD_ID` variable.
-    - The ID is the last part of the leaderboard url (http://adventofcode.com/2017/leaderboard/private/view/LEADERBOARD_ID)
+    - The ID is the last part of the leaderboard url (http://adventofcode.com/2018/leaderboard/private/view/LEADERBOARD_ID)
 4. Run that shit. Schedule a cron job or something. I don't know. You're doing Advent of Code, figure it out. [Just make sure that you don't hit the servers too often.](https://www.reddit.com/r/adventofcode/comments/7gy2y3/remember_please_limit_automated_http_requests/)
 
 ## Recommended Settings
@@ -45,7 +45,7 @@ Copy the Webhook URL or have the Admin send that URL to you, you'll need it for 
 ## Getting a Session Cookie
 You'll need a session cookie from the Advent of Code website.
 
-Go to the [Advent of Code Private Leaderboard](http://adventofcode.com/2017/leaderboard/private) page. Make sure you're logged in.
+Go to the [Advent of Code Private Leaderboard](http://adventofcode.com/2018/leaderboard/private) page. Make sure you're logged in.
 
 ### In Firefox:
 - Open the Developer Tools by pressing `F12`
