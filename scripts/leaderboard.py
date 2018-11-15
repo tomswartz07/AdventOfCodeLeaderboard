@@ -16,9 +16,9 @@ def formatLeaderMessage(members):
 
     # add each member to message
     for username, score, stars in members:
-        message += "\n*{}* {} Points, {} Stars".format(username, score, stars)
+        message += "*{}* {} Points, {} Stars\n".format(username, score, stars)
 
-    message += "\n\n<{}|View Online Leaderboard>".format(LEADERBOARD_URL)
+    message += "\n<{}|View Online Leaderboard>".format(LEADERBOARD_URL)
 
     return message
 
