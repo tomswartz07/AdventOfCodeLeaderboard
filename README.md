@@ -58,7 +58,7 @@ Go to the [Advent of Code Private Leaderboard](http://adventofcode.com/2017/lead
 ### In Chrome:
 - Open the Developer Tools by pressing `CTRL` + `Shift` + `I`
     - Mac: Open the Developer Tools by pressing `Cmd` + `Opt` + `I`
-- Select "Aplication" from the tool tabs
+- Select "Application" from the tool tabs
 - Click the dropdown arrow beside cookies in treeview on the left
 - Select *http://adventofcode.com*
 - Double click the value of the *session* cookie to highlight it
