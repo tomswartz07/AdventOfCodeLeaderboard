@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=C0301,C0103
 
 '''
 This script will grab the leaderboard from Advent of Code and post it to Slack
