@@ -1,23 +1,24 @@
 #!/usr/bin/env python
-# pylint: disable=C0301,C0103
-
 '''
 This script will grab the leaderboard from Advent of Code and post it to Slack
 '''
+# pylint: disable=wrong-import-order
+# pylint: disable=C0301,C0103
+
 
 import datetime
 import sys
 import json
 import requests
 
-# see README for directions on how to fill these variables
-LEADERBOARD_ID = ""
-SESSION_ID = ""
-SLACK_WEBHOOK = ""
+# Simply create secrets.py with these values defined.
+# See README for more detailed directions on how to fill these variables.
+from secrets import LEADERBOARD_ID, SESSION_ID, SLACK_WEBHOOK
 
 # You should not need to change this URL
 LEADERBOARD_URL = "https://adventofcode.com/{}/leaderboard/private/view/{}".format(
-        datetime.datetime.today().year, LEADERBOARD_ID)
+        datetime.datetime.today().year,
+        LEADERBOARD_ID)
 
 def formatLeaderMessage(members):
     """
@@ -26,10 +27,15 @@ def formatLeaderMessage(members):
     message = ""
 
     # add each member to message
+    medals = [':third_place_medal:', ':second_place_medal:', ':trophy:']
     for username, score, stars in members:
-        message += "*{}* {} Points, {} Stars\n".format(username, score, stars)
+        if medals:
+            medal = ' ' + medals.pop()
+        else:
+            medal = ''
+        message += f"{medal}*{username}* {score} Points, {stars} Stars\n"
 
-    message += "\n<{}|View Online Leaderboard>".format(LEADERBOARD_URL)
+    message += f"\n<{LEADERBOARD_URL}|View Leaderboard Online>"
 
     return message
 
@@ -38,9 +44,12 @@ def parseMembers(members_json):
     Handle member lists from AoC leaderboard
     """
     # get member name, score and stars
-    members = [(m["name"], m["local_score"], m["stars"]) for m in members_json.values()]
+    members = [(m["name"],
+                m["local_score"],
+                m["stars"]
+                ) for m in members_json.values()]
 
-    # sort members by score, decending
+    # sort members by score, descending
     members.sort(key=lambda s: (-s[1], -s[2]))
 
     return members

@@ -22,7 +22,7 @@ Useful for your friendly competitions in and around the workplace.
     - If you don't have access to add an incoming webhook, see the [Recommended Settings](#recommended-settings) section for more details.
 2. Log in to Advent of Code and obtain two things: the Private Leaderboard ID Number and a Session Cookie.
 See [Session Cookie](#getting-a-session-cookie) section for details.
-3. Dump that info into the copy of the script.
+3. Dump that info into a `secrets.py` file.
   - Webhook URL goes in the `SLACK_WEBHOOK` variable
   - Session goes in the `SESSION_ID` variable
   - Leaderboard ID goes in the `LEADERBOARD_ID` variable.
