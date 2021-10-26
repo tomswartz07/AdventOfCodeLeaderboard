@@ -40,8 +40,8 @@ There is a GitHub action which will build and deploy this container automaticall
 but if you want to build it locally (i.e. to use a custom cron schedule)
 
 1. Edit the `crontab` file to reflect the schedule you want. By default, it will
-run at 7am daily. (Be sure to set the `TZ` env var to your local time, otherwise
-UTC will be used)
+run at 7am daily during the month of the event. (Be sure to set the `TZ` env var
+to your local time, otherwise UTC will be used)
 
 2. Build the image
 ```
