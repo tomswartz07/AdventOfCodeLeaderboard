@@ -1,3 +1,5 @@
+[![Pylint](https://github.com/tomswartz07/AdventOfCodeLeaderboard/actions/workflows/pylint.yml/badge.svg)](https://github.com/tomswartz07/AdventOfCodeLeaderboard/actions/workflows/pylint.yml)
+
 # Advent of Code Leaderboard Slack Bot
 
 This repository contains the code for a script that will post a Private Advent of Code Leaderboard to a custom Slack Channel.
