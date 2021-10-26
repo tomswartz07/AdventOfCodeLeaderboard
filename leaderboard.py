@@ -3,7 +3,7 @@
 This script will grab the leaderboard from Advent of Code and post it to Slack
 '''
 # pylint: disable=wrong-import-order
-# pylint: disable=C0301,C0103
+# pylint: disable=C0301,C0103,C0209
 
 import os
 import datetime
