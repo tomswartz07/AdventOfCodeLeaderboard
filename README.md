@@ -29,6 +29,34 @@ See [Session Cookie](#getting-a-session-cookie) section for details.
     - The ID is the last part of the leaderboard url (https://adventofcode.com/2018/leaderboard/private/view/LEADERBOARD_ID)
 4. Run that shit. Schedule a cron job or something. I don't know. You're doing Advent of Code, figure it out. [Just make sure that you don't hit the servers too often.](https://www.reddit.com/r/adventofcode/comments/7gy2y3/remember_please_limit_automated_http_requests/)
 
+## Docker Container
+Since this script is fairly simple, it's easy enough to run in a compact docker
+container, ensuring that the script is offloaded from whatever main host you have.
+
+### Building Docker Image
+There is a GitHub action which will build and deploy this container automatically,
+but if you want to build it locally (i.e. to use a custom cron schedule)
+
+1. Edit the `crontab` file to reflect the schedule you want. By default, it will
+run at 7am daily. (Be sure to set the `TZ` env var to your local time, otherwise
+UTC will be used)
+
+2. Build the image
+```
+docker build -t slack-aoc .
+```
+
+3. Run the image
+Refer to [Setup](#setup) to get the relevant parameters for your environment
+```
+docker run -it --detach --rm --name aoc-slack \
+-e TZ="America/New_York" \
+-e SLACK_WEBHOOK='https://hooks.slack.com/services/$HOOKINFO' \
+-e LEADERBOARD_ID="$LEADERBOARD_ID" \
+-e SESSION_ID="$SESSION_COOKIE" \
+slack-aoc
+```
+
 ## Recommended Settings
 When creating the custom webhook for the Slack channel, there are a few options to customize.
 

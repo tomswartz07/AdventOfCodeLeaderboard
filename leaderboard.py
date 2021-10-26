@@ -5,15 +5,21 @@ This script will grab the leaderboard from Advent of Code and post it to Slack
 # pylint: disable=wrong-import-order
 # pylint: disable=C0301,C0103
 
-
+import os
 import datetime
 import sys
 import json
 import requests
 
+LEADERBOARD_ID = os.environ.get('LEADERBOARD_ID')
+SESSION_ID = os.environ.get('SESSION_ID')
+SLACK_WEBHOOK = os.environ.get('SLACK_WEBHOOK')
+
+# If the ENV Var hasn't been set, then try to load from local config.
 # Simply create secrets.py with these values defined.
 # See README for more detailed directions on how to fill these variables.
-from secrets import LEADERBOARD_ID, SESSION_ID, SLACK_WEBHOOK
+if not all([LEADERBOARD_ID, SESSION_ID, SLACK_WEBHOOK]):
+    from secrets import LEADERBOARD_ID, SESSION_ID, SLACK_WEBHOOK
 
 # You should not need to change this URL
 LEADERBOARD_URL = "https://adventofcode.com/{}/leaderboard/private/view/{}".format(
