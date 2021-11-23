@@ -13,3 +13,7 @@ updates:
       - "tomswartz07"
     reviewers:
       - "tomswartz07"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
