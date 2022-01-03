@@ -1,0 +1,40 @@
+# This workflow will install Python dependencies, run tests and lint with a
+# several versions of Python
+
+name: Python Multi-Version Matrix Test
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - '3.x'   # Most Recent 3.x release
+          - '3.10'  # EOL xx Oct 2026
+          - '3.9'   # EOL xx Oct 2025
+          - '3.8'   # EOL xx Oct 2024
+          - '3.7'   # EOL 27 Jun 2023
+          - '3.6'   # EOL 24 Dec 2021
+          - '3.6.8' # CentOS 7/8 Python3 version (as of Q4 2021)
+    name: Python ${{ matrix.python-version }} Testing
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
