@@ -1,11 +1,9 @@
 name: Publish Docker image
 on:
-  workflow_run:
-    workflows: ["Python Multi-Version Matrix Test"]
-    types: ["completed"]
+  push:
+    branches: [ master ]
 jobs:
   push_to_registry:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
