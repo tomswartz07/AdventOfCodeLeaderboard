@@ -17,3 +17,15 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    assignees:
+      - "tomswartz07"
+    reviewers:
+      - "tomswartz07"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "tomswartz07"
+    reviewers:
+      - "tomswartz07"
