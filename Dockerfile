@@ -5,11 +5,10 @@ LABEL description="Docker container to run a Slack bot which posts daily \
 updates on the Advent of Code leaderboard."
 
 
+COPY crontab .
+RUN crontab crontab
 COPY leaderboard.py .
 COPY requirements.txt .
-COPY crontab .
 RUN pip install --no-cache-dir -r requirements.txt
-
-RUN crontab crontab
 
 CMD [ "crond", "-f" ]
