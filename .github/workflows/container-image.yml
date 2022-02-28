@@ -1,7 +1,8 @@
 name: Publish Container Image
 on:
   push:
-    branches: [ master ]
+    tags:
+      - '*'
 jobs:
   push_to_registry:
     name: Build and Push Container
@@ -9,6 +10,9 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Get the Tag Version
+        id: get_version
+        run: echo ${{ github.ref_name }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set Up Docker Buildx
@@ -36,4 +40,6 @@ jobs:
           push: true
           tags: |
             tomswartz07/slack-adventofcodeleaderboard:latest
+            tomswartz07/slack-adventofcodeleaderboard:${{github.ref_name}}
             ghcr.io/tomswartz07/slack-adventofcodeleaderboard:latest
+            ghcr.io/tomswartz07/slack-adventofcodeleaderboard:${{github.ref_name}}
