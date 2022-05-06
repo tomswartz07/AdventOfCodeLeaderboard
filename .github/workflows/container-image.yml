@@ -43,7 +43,7 @@ jobs:
         id: get_version
         run: echo ${{ github.ref_name }}
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
       - name: Set Up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Log In to DockerHub
