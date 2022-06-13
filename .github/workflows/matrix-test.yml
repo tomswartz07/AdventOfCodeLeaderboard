@@ -19,8 +19,6 @@ jobs:
           - '3.9'   # EOL xx Oct 2025
           - '3.8'   # EOL xx Oct 2024
           - '3.7'   # EOL 27 Jun 2023
-          - '3.6'   # EOL 24 Dec 2021
-          - '3.6.8' # CentOS 7/8 Python3 version (as of Q4 2021)
     name: Python ${{ matrix.python-version }} Testing
     steps:
       - uses: actions/checkout@v2
