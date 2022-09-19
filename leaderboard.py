@@ -94,6 +94,7 @@ def main():
     # retrieve leaderboard
     r = requests.get(
         "{}.json".format(LEADERBOARD_URL),
+        timeout=60,
         cookies={"session": SESSION_ID}
     )
     if r.status_code != requests.codes.ok:  # pylint: disable=no-member
