@@ -26,6 +26,7 @@ LEADERBOARD_URL = "https://adventofcode.com/{}/leaderboard/private/view/{}".form
         datetime.datetime.today().year,
         LEADERBOARD_ID)
 
+
 def formatLeaderMessage(members):
     """
     Format the message to conform to Slack's API
@@ -45,6 +46,7 @@ def formatLeaderMessage(members):
 
     return message
 
+
 def parseMembers(members_json):
     """
     Handle member lists from AoC leaderboard
@@ -60,6 +62,7 @@ def parseMembers(members_json):
 
     return members
 
+
 def postMessage(message):
     """
     Post the message to to Slack's API in the proper channel
@@ -73,8 +76,10 @@ def postMessage(message):
     requests.post(
         SLACK_WEBHOOK,
         data=payload,
+        timeout=60,
         headers={"Content-Type": "application/json"}
     )
+
 
 def main():
     """
@@ -91,7 +96,7 @@ def main():
         "{}.json".format(LEADERBOARD_URL),
         cookies={"session": SESSION_ID}
     )
-    if r.status_code != requests.codes.ok: #pylint: disable=no-member
+    if r.status_code != requests.codes.ok:  # pylint: disable=no-member
         print("Error retrieving leaderboard")
         sys.exit(1)
 
@@ -103,6 +108,7 @@ def main():
 
     # send message to slack
     postMessage(message)
+
 
 if __name__ == "__main__":
     main()
