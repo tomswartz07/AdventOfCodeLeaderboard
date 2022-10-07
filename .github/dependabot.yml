@@ -9,6 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+      day: "monday"
       time: "08:00"
       timezone: "America/New_York"
     assignees:
@@ -19,6 +20,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
       time: "08:00"
       timezone: "America/New_York"
     assignees:
@@ -29,6 +31,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
       time: "08:00"
       timezone: "America/New_York"
     assignees:
