@@ -15,6 +15,7 @@ jobs:
       matrix:
         python-version:
           - '3.x'   # Most Recent 3.x release
+          - '3.11'  # EOL xx Oct 2027
           - '3.10'  # EOL xx Oct 2026
           - '3.9'   # EOL xx Oct 2025
           - '3.8'   # EOL xx Oct 2024
