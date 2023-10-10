@@ -1,4 +1,4 @@
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 LABEL org.opencontainers.image.source=https://github.com/tomswartz07/AdventOfCodeLeaderboard
 LABEL org.opencontainers.image.authors="tom+docker@tswartz.net"
 LABEL description="Docker container to run a Slack bot which posts daily \
