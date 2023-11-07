@@ -16,3 +16,4 @@ RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "crond", "-f" ]
+HEALTHCHECK CMD ps aux | grep '[c]ron' || exit 1
