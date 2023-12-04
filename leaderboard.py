@@ -95,7 +95,10 @@ def main():
     r = requests.get(
         "{}.json".format(LEADERBOARD_URL),
         timeout=60,
-        cookies={"session": SESSION_ID}
+        cookies={"session": SESSION_ID},
+        headers={
+            'User-Agent': 'https://github.com/tomswartz07/AdventOfCodeLeaderboard'
+        }
     )
     if r.status_code != requests.codes.ok:  # pylint: disable=no-member
         print("Error retrieving leaderboard")
