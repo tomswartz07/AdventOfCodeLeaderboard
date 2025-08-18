@@ -15,7 +15,7 @@ jobs:
           - '3.10'  # EOL 31 Oct 2026
     name: Python ${{ matrix.python-version }} Testing
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -40,7 +40,7 @@ jobs:
       packages: write
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Get the Tag Version
         id: get_version
         run: echo ${{ github.ref_name }}
