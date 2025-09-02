@@ -19,7 +19,6 @@ jobs:
           - '3.11'  # EOL xx Oct 2027
           - '3.10'  # EOL xx Oct 2026
           - '3.9'   # EOL xx Oct 2025
-          - '3.8'   # EOL xx Oct 2024
     name: Python ${{ matrix.python-version }} Testing
     steps:
       - uses: actions/checkout@v5
