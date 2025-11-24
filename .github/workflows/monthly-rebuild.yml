@@ -15,7 +15,7 @@ jobs:
       packages: write
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Get the Tag Version
         id: get_version
         run: echo ${{ github.ref_name }}
