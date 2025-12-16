@@ -1,1 +1,2 @@
-0 7 1-25 12 * python3 /leaderboard.py
+#0 7 1-25 12 * python3 /leaderboard.py
+0 7 1-12 12 * python3 /leaderboard.py
